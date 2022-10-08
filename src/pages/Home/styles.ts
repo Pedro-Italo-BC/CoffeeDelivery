@@ -155,5 +155,8 @@ export const CoffeeList = styled.ul`
   flex-wrap: wrap;
 
   list-style: none;
-  justify-content: center;
+
+  @media (max-width: 1399px) {
+    justify-content: center;
+  }
 `
