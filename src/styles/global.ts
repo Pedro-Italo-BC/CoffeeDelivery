@@ -28,4 +28,29 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
     }
 
+
+    @media(max-width: 1150px){
+        html{
+            font-size: 85%; 
+        }
+    }
+
+    @media(max-width: 900px){
+        html{
+            font-size: 75%; 
+        }
+    }
+
+    @media(max-width: 850px){
+        html{
+            font-size: 60%;
+        }
+    }
+
+    @media(max-width: 350px){
+        html{
+            font-size: 50%;
+        }
+    }
+
 `

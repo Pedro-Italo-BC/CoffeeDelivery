@@ -13,7 +13,7 @@ export function Header() {
       <div>
         <LocalInfo>
           <MapPin
-            size={22}
+            size={'1.375rem'}
             color={defaultTheme['purple-normal']}
             weight="fill"
           />
@@ -21,7 +21,7 @@ export function Header() {
         </LocalInfo>
         <PaymentAreaLink>
           <ShoppingCart
-            size={22}
+            size={'1.375rem'}
             color={defaultTheme['yellow-dark']}
             weight="fill"
           />

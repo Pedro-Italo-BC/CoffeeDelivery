@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
-  height: 6.5rem;
+  padding: 2rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,6 +10,13 @@ export const HeaderContainer = styled.header`
     display: flex;
 
     gap: 0.75rem;
+  }
+
+  a {
+    img {
+      width: 5.3125rem;
+      height: 2.5rem;
+    }
   }
 
   a:hover {
@@ -31,7 +38,6 @@ export const LocalInfo = styled.div`
     color: ${(props) => props.theme['purple-dark']};
     font-weight: 400;
     font-size: 0.875rem;
-    line-height: 1.1rem;
   }
 `
 
