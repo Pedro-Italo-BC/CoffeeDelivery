@@ -41,14 +41,24 @@ export const LocalInfo = styled.div`
   }
 `
 
-export const PaymentAreaLink = styled.a`
-  height: 2.375rem;
-  width: 2.375rem;
+export const PaymentAreaLink = styled.div`
+  a {
+    height: 2.375rem;
+    width: 2.375rem;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  background-color: ${(props) => props.theme['yellow-light']};
-  border-radius: 6px;
+    background-color: ${(props) => props.theme['yellow-light']};
+    border-radius: 6px;
+
+    transition: filter 0.3s;
+
+    outline: none;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }
 `

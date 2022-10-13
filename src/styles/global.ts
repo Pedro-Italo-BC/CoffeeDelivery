@@ -47,9 +47,15 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
 
-    @media(max-width: 350px){
+    @media(max-width: 410px){
         html{
             font-size: 50%;
+        }
+    }
+
+    @media(max-width: 369px){
+        html{
+            font-size: 40%;
         }
     }
 

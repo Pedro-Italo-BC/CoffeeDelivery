@@ -7,11 +7,11 @@ import { Plus, Minus } from 'phosphor-react'
 export function CoffeeAmountButton() {
   return (
     <CoffeeAmountButtonContainer>
-      <ButtonShape>
+      <ButtonShape type="button">
         <Minus size={14} color={defaultTheme['purple-normal']} />
       </ButtonShape>
       <span>1</span>
-      <ButtonShape>
+      <ButtonShape type="button">
         <Plus size={14} color={defaultTheme['purple-normal']} />
       </ButtonShape>
     </CoffeeAmountButtonContainer>

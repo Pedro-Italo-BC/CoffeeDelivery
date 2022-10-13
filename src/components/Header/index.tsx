@@ -2,13 +2,14 @@ import { HeaderContainer, LocalInfo, PaymentAreaLink } from './styles'
 import Logo from '../../assets/Logo.svg'
 import { MapPin, ShoppingCart } from 'phosphor-react'
 import { defaultTheme } from '../../styles/themes/defaultTheme'
+import { NavLink } from 'react-router-dom'
 
 export function Header() {
   return (
     <HeaderContainer>
-      <a>
+      <NavLink to="/" title="Home">
         <img src={Logo} alt="" />
-      </a>
+      </NavLink>
 
       <div>
         <LocalInfo>
@@ -20,11 +21,13 @@ export function Header() {
           <span>Porto Alegre, RS</span>
         </LocalInfo>
         <PaymentAreaLink>
-          <ShoppingCart
-            size={'1.375rem'}
-            color={defaultTheme['yellow-dark']}
-            weight="fill"
-          />
+          <NavLink to="coffeeCheckout" title="Checkout">
+            <ShoppingCart
+              size={'1.375rem'}
+              color={defaultTheme['yellow-dark']}
+              weight="fill"
+            />
+          </NavLink>
         </PaymentAreaLink>
       </div>
     </HeaderContainer>

@@ -100,4 +100,11 @@ export const AddCoffeeButton = styled.button`
   justify-content: center;
 
   background-color: ${(props) => props.theme['purple-dark']};
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: ${(props) => props.theme['purple-normal']};
+
+    cursor: pointer;
+  }
 `
