@@ -1,12 +1,27 @@
 import { TBodyStyle, TFootStyle, TableStile } from './styles'
 
+import { CoffeeContext } from '../../../../Context/CoffeeContext'
+
+import { useContext } from 'react'
+
 export function PayTable() {
+  const { coffeeList } = useContext(CoffeeContext)
+
+  const total = coffeeList.reduce((acc, cur) => {
+    return acc + cur.price * cur.amount
+  }, 0)
+
   return (
     <TableStile>
       <TBodyStyle>
         <tr>
           <td>Total de itens</td>
-          <td>R$ 29,70</td>
+          <td>
+            {total.toLocaleString('pt-br', {
+              style: 'currency',
+              currency: 'BRL',
+            })}
+          </td>
         </tr>
         <tr>
           <td>Entrega</td>
@@ -17,7 +32,14 @@ export function PayTable() {
       <TFootStyle>
         <tr>
           <td>Total</td>
-          <td>R$ 33,20</td>
+          <td>
+            {total === 0
+              ? 0
+              : (total + 3.5).toLocaleString('pt-br', {
+                  style: 'currency',
+                  currency: 'BRL',
+                })}
+          </td>
         </tr>
       </TFootStyle>
     </TableStile>

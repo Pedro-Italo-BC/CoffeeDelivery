@@ -4,6 +4,7 @@ import { DefaultLayout } from './layouts/DefaultLayout'
 
 import { Home } from './pages/Home'
 import { CoffeeCheckout } from './pages/CoffeeCheckout'
+import { SuccessPage } from './pages/SuccessPage'
 
 export function Router() {
   return (
@@ -11,6 +12,8 @@ export function Router() {
       <Route path="/" element={<DefaultLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/coffeeCheckout" element={<CoffeeCheckout />} />
+
+        <Route path="/success" element={<SuccessPage />} />
       </Route>
     </Routes>
   )

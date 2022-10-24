@@ -4,14 +4,24 @@ import { defaultTheme } from '../../styles/themes/defaultTheme'
 
 import { Plus, Minus } from 'phosphor-react'
 
-export function CoffeeAmountButton() {
+interface CoffeeAmountButtonProps {
+  incrementFunction: () => void
+  decrementFunction: () => void
+  amountValue: number
+}
+
+export function CoffeeAmountButton({
+  amountValue,
+  decrementFunction,
+  incrementFunction,
+}: CoffeeAmountButtonProps) {
   return (
     <CoffeeAmountButtonContainer>
-      <ButtonShape type="button">
+      <ButtonShape type="button" onClick={decrementFunction}>
         <Minus size={14} color={defaultTheme['purple-normal']} />
       </ButtonShape>
-      <span>1</span>
-      <ButtonShape type="button">
+      <span>{amountValue}</span>
+      <ButtonShape type="button" onClick={incrementFunction}>
         <Plus size={14} color={defaultTheme['purple-normal']} />
       </ButtonShape>
     </CoffeeAmountButtonContainer>

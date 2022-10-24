@@ -25,7 +25,11 @@ import {
 
 import { defaultTheme } from '../../../../styles/themes/defaultTheme'
 
+import { useFormContext } from 'react-hook-form'
+
 export function InputsArea() {
+  const { register } = useFormContext()
+
   return (
     <InputSectionContainer>
       <h2>Complete seu pedido</h2>
@@ -41,18 +45,32 @@ export function InputsArea() {
           </Hero>
 
           <InputContainer>
-            <CepInput type="text" placeholder="CEP" />
-            <RoadInput type="text" placeholder="Rua" />
-            <NumberInput type="tel" placeholder="Número" />
+            <CepInput type="text" placeholder="CEP" {...register('cep')} />
+            <RoadInput type="text" placeholder="Rua" {...register('road')} />
+            <NumberInput
+              type="tel"
+              placeholder="Número"
+              {...register('number')}
+            />
 
             <ComplementInput>
-              <input type="text" placeholder="Complemento" />
+              <input
+                type="text"
+                placeholder="Complemento"
+                {...register('complement')}
+              />
               <span>Opcional</span>
             </ComplementInput>
 
-            <DistrictInput type="text" placeholder="Bairro" />
-            <CityInput type="text" placeholder="Cidade" />
-            <UfInput type="text" placeholder="UF" />
+            <DistrictInput
+              type="text"
+              placeholder="Bairro"
+              {...register('district')}
+            />
+
+            <CityInput type="text" placeholder="Cidade" {...register('city')} />
+
+            <UfInput type="text" placeholder="UF" {...register('uf')} />
           </InputContainer>
         </ContainerStyle>
 
@@ -71,19 +89,34 @@ export function InputsArea() {
           </Hero>
 
           <PaymentMethodContainer>
-            <input type="radio" name="PaymentMethod" id="Credit" />
+            <input
+              type="radio"
+              id="Credit"
+              value="Caratão de credito"
+              {...register('paymentMethodInput')}
+            />
             <LabelStyle htmlFor="Credit">
               <CreditCard size="1rem" color={defaultTheme['purple-dark']} />{' '}
               CARTÃO DE CRÉDITO
             </LabelStyle>
 
-            <input type="radio" name="PaymentMethod" id="Debit" />
+            <input
+              type="radio"
+              id="Debit"
+              value="Debito"
+              {...register('paymentMethodInput')}
+            />
             <LabelStyle htmlFor="Debit">
               <Bank size="1rem" color={defaultTheme['purple-dark']} /> CARTÃO DE
               DÉBITO
             </LabelStyle>
 
-            <input type="radio" name="PaymentMethod" id="Money" />
+            <input
+              type="radio"
+              id="Money"
+              value="Dinheiro"
+              {...register('paymentMethodInput')}
+            />
             <LabelStyle htmlFor="Money">
               <Money size="1rem" color={defaultTheme['purple-dark']} /> DINHEIRO
             </LabelStyle>

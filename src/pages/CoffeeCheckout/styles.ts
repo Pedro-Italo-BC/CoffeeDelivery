@@ -65,9 +65,14 @@ export const SubmitButton = styled.button`
     filter: brightness(0.9);
     cursor: pointer;
   }
+
+  &:disabled {
+    filter: brightness(0.8);
+    cursor: not-allowed;
+  }
 `
 export const CartListContainer = styled.ul`
-  height: 14.5rem;
+  max-height: 14.5rem;
   list-style: none;
   width: 100%;
 

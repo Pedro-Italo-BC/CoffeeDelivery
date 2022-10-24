@@ -9,29 +9,66 @@ import {
   AddCoffeeButton,
 } from './styles'
 
-import Exemple from '../../../../assets/CafesImg/coffee1.png'
 import { defaultTheme } from '../../../../styles/themes/defaultTheme'
 
-export function CoffeeCard() {
+import {
+  CoffeeInfoType,
+  CoffeeContext,
+} from '../../../../Context/CoffeeContext'
+import { useState, useContext } from 'react'
+
+interface CoffeeCardProps {
+  value: CoffeeInfoType
+}
+
+export function CoffeeCard({ value }: CoffeeCardProps) {
+  const [coffeeAmount, setCoffeeAmount] = useState(1)
+
+  const { handleAddCoffeeToList } = useContext(CoffeeContext)
+
+  function incrementCoffeeAmount() {
+    setCoffeeAmount((state) => state + 1)
+  }
+
+  function decrementCoffeeAmount() {
+    setCoffeeAmount((state) => (state <= 1 ? (state = 1) : state - 1))
+  }
+
+  function handleAddNewCoffee() {
+    const newValue = { ...value, amount: coffeeAmount }
+    handleAddCoffeeToList(newValue)
+  }
+
   return (
     <CoffeeCardContainer>
       <CoffeeHeader>
-        <img src={Exemple} alt="" />
+        <img src={value.img} alt="" />
         <CoffeeCategory>
-          <span>Tradicional</span>
+          {value.category.map((value) => {
+            return <span key={value}>{value}</span>
+          })}
         </CoffeeCategory>
       </CoffeeHeader>
       <CoffeeInfo>
-        <h3>Expresso Tradicional</h3>
-        <p>O tradicional café feito com água quente e grãos moídos</p>
+        <h3>{value.name}</h3>
+        <p>{value.description}</p>
       </CoffeeInfo>
       <CoffeeFooter>
-        <p>R$9,90</p>
+        <p>
+          {value.price.toLocaleString('pt-br', {
+            style: 'currency',
+            currency: 'BRL',
+          })}
+        </p>
 
         <div>
-          <CoffeeAmountButton />
+          <CoffeeAmountButton
+            incrementFunction={incrementCoffeeAmount}
+            decrementFunction={decrementCoffeeAmount}
+            amountValue={coffeeAmount}
+          />
 
-          <AddCoffeeButton>
+          <AddCoffeeButton onClick={handleAddNewCoffee}>
             <ShoppingCartSimple
               color={defaultTheme.white}
               weight="fill"
